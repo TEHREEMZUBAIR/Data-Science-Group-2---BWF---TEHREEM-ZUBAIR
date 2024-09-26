@@ -1,80 +1,153 @@
+
 ---
 
-# 📊 CSV Cleaner, Analyzer, and Visualizer
+# 📊 CSV Catalyst: CSV Analyzer and Visualizer using LangChain
 
-Welcome to the **CSV Cleaner, Analyzer, and Visualizer**! This project is a comprehensive tool that allows users to upload CSV files, ask questions about the data, and visualize the results with tables and charts. Built using **Langchain**, **OpenAI GPT-3**, and **Streamlit**, this project brings together powerful technologies to create an intuitive data analysis interface.
+CSV Catalyst is a powerful tool designed to analyze, clean, and visualize CSV data using LangChain and OpenAI. With an intuitive interface built on Streamlit, it allows you to interact with your data and get intelligent insights with just a few clicks.
 
-## 🚀 Features
+## 🚀 Project Overview
+This project leverages the power of large language models (LLMs) to analyze CSV datasets, generate summary reports, perform data analysis, and create visualizations (bar and line charts). It's powered by LangChain and OpenAI's GPT-4.
 
-- **CSV Upload**: Easily upload CSV files directly from your local machine.
-- **Natural Language Queries**: Pose queries about your data in plain English.
-- **Automated Responses**: Get answers from GPT-3 with structured responses, including tables, bar charts, and line charts.
-- **Interactive Visualizations**: Visualize data insights with responsive tables and interactive charts.
-- **User-Friendly Interface**: Simple, clean interface powered by Streamlit for ease of use.
+## 📦 Features
+- **Upload CSV files** for automated analysis and visualization.
+- **Summarize CSV data** with insights like data types, numeric ranges, and value counts.
+- **Generate bar and line charts** for interactive visualizations.
+- **Query-based data analysis** through LangChain's AI agent.
 
-## 🛠️ Installation
+---
 
-### 1. Set up your environment
-To get started, clone this repo and create a virtual environment:
+## 🛠 Setup Instructions
+
+Follow these steps to get the project up and running on your machine.
+
+### 1️⃣ Clone the Repository
 ```bash
-python -m venv venv
-```
-Activate it:
-```bash
-venv\Scripts\activate
-```
-
-### 2. Install Dependencies
-Install the necessary packages:
-```bash
-pip install langchain==0.0.146 python-dotenv==1.0.0 streamlit==1.22.0 openai==0.27.7 tabulate==0.9.0
+git clone <repository-url>
+cd <repository-directory>
 ```
 
-### 3. Set Your OpenAI API Key
-Get your OpenAI API key [here](https://platform.openai.com/account/api-keys), and then set the environment variable:
+### 2️⃣ Set Up a Virtual Environment
+Create a virtual environment to manage dependencies.
+
 ```bash
-set OPENAI_API_KEY=<YOUR_API_KEY>
+python -m venv env
+source env/bin/activate  # On Windows: .\env\Scripts\activate
 ```
 
-## 💻 Usage
+### 3️⃣ Install Dependencies
+Install the required dependencies from `requirements.txt`.
 
-### 1. Run the Application
-To start the application, run:
 ```bash
-streamlit run Talk_with_CSV.py
+pip install -r requirements.txt
 ```
 
-This will open a new tab in your browser with the app's interface. You'll be able to upload a CSV file, type queries, and view the responses with visualizations.
+### 4️⃣ Obtain an OpenAI API Key
+You need to create an OpenAI API key to enable the LangChain agent for querying the CSV data.
 
-### 2. How It Works
-- **Upload CSV**: You’ll be prompted to upload a CSV file.
-- **Ask a Query**: Type your query in natural language.
-- **Submit Query**: Click the "Submit Query" button to get your answer, along with a table, bar chart, or line chart visualization.
+1. Sign up at [OpenAI](https://beta.openai.com/signup/).
+2. Go to your [API Keys](https://beta.openai.com/account/api-keys) and create a new key.
+3. Save the API key for the next step.
 
-### 3. Available Query Types
-You can ask the system for:
-- **Tables**: e.g., "Show me the first 10 rows."
-- **Bar Charts**: e.g., "Show me a bar chart of sales by product."
-- **Line Charts**: e.g., "Plot the trend of prices over time."
-- **Text Responses**: e.g., "What is the total number of rows?"
+### 5️⃣ Set Up Environment Variables
+Create a `.env` file in the root directory and add your OpenAI API key:
 
-## 📊 Sample Output
+```bash
+OPENAI_API_KEY="your-openai-api-key-here"
+```
 
-After running the app, you will be able to view dynamic tables, bar charts, and line charts based on your CSV data and queries, making data exploration faster and easier.
+### 6️⃣ Run the Streamlit Interface
+Run the Streamlit app to start the CSV analyzer interface.
 
-## 🔗 Key Libraries
+```bash
+streamlit run interface.py
+```
 
-- [Langchain](https://langchain.readthedocs.io/en/latest/): Integrating powerful language models.
-- [Streamlit](https://streamlit.io/): Building beautiful, interactive data science apps.
-- [OpenAI](https://beta.openai.com/): Access to GPT-3 for intelligent query responses.
+After running the command, your app should open automatically in the browser.
 
-## 🤝 Contributing
+---
 
-We welcome contributions to improve this tool! Feel free to open issues or submit pull requests.
+## 📂 File Structure
 
-## 📬 Contact
+```
+📦 Project Directory
+├── 📄 agent.py               # Contains the logic for LangChain-powered data analysis and visualization
+├── 📄 interface.py           # Streamlit app for interacting with the CSV analyzer
+├── 📄 requirements.txt       # Dependencies for the project
+├── 📄 README.md              # This readme file
+├── 📄 .env                   # OpenAI API key (not included in the repo)
+```
 
-Feel free to reach out for any questions or suggestions:
-- 📧 Email: tehreemzubair785@gmail.com
+---
+
+## 🎨 Usage Instructions
+
+1. **Upload CSV File**: Start by uploading your CSV file.
+2. **Select Action**: Choose an action from the sidebar:
+   - **Summarization Report**: Provides a summary of the dataset.
+   - **Analysis**: Performs a detailed analysis of the dataset using AI.
+   - **Visualization**: Query the system for visualizing data in bar or line charts.
+3. **Submit Query**: For "Analysis" and "Visualization," enter a query to analyze or visualize the dataset.
+4. **Download Reports**: For the summarization report, you can download a detailed text report of your dataset.
+
+---
+
+## 💻 Example Queries
+
+- **Analysis Queries**: 
+  - "Show me the summary of the dataset."
+  - "Analyze the correlation between columns A and B."
+  
+- **Visualization Queries**: 
+  - "Create a bar chart of column A."
+  - "Plot a line chart for columns A and B."
+
+---
+
+🔎 Summarizer Example:
+![Summarizer](https://github.com/user-attachments/assets/086b49b9-dbd2-4e2b-b388-37afb888a5f8)
+
+🔎 Data Analysis Example:
+You can ask the agent to analyze your dataset and provide detailed insights.
+
+Example query:
+"Which Products have the highest Sales"
+Result:
+![analysis](https://github.com/user-attachments/assets/49c16da0-c388-4f58-8674-44d8c5839804)
+
+📈 Visualization Example:
+By asking questions related to visualization, you can easily generate bar charts or line charts.
+
+Example query:
+"Create a bar chart of the sales of first five products."
+Output:
+![Visualization](https://github.com/user-attachments/assets/64954971-d0fa-4591-9d3d-b42a08ee2dc7)
+
+---
+
+## 🧑‍💻 Dependencies
+
+- **LangChain**: Framework for building applications powered by language models.
+- **OpenAI**: API for GPT-4 integration.
+- **Streamlit**: Interactive web app framework for Python.
+- **Pandas**: Data manipulation and analysis library.
+  
+---
+
+## 🛠 Troubleshooting
+
+1. **Environment Setup Issues**: Make sure your virtual environment is activated and all dependencies are installed correctly.
+2. **OpenAI API Errors**: Double-check your `.env` file to ensure the API key is set correctly.
+3. **Streamlit App Not Running**: Ensure Streamlit is installed and the port is not blocked.
+
+---
+
+## 🚀 Future Enhancements
+- Add more advanced chart types like scatter plots.
+- Integrate additional data analysis techniques such as clustering.
+- Enhance the model's ability to interpret complex queries.
+
+---
+
+Made with ❤️ by Tehreem Zubair!
 
 ---
